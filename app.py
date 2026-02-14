@@ -6,8 +6,8 @@ import os
 app = Flask(__name__)
 
 # Configuración para Railway (usará SQLite temporalmente o podrías conectar tu Postgres de Railway luego)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///products.db')
-if app.config['SQLALCHEMY_DATABASE_URI'].startswith("postgres://"):
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+if app.config['SQLALCHEMY_DATABASE_URI'] and app.config['SQLALCHEMY_DATABASE_URI'].startswith("postgres://"):
     app.config['SQLALCHEMY_DATABASE_URI'] = app.config['SQLALCHEMY_DATABASE_URI'].replace("postgres://", "postgresql://", 1)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -17,16 +17,17 @@ db = SQLAlchemy(app)
 WEBHOOK_URL = "https://api.sistemaspro.online/webhook/nuevo-producto"
 
 class Product(db.Model):
+    __tablename__ = 'afiliados_master'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    affiliate_link = db.Column(db.String(255), nullable=False)
+    nombre_producto = db.Column(db.String(100), nullable=False)
+    link_afiliado = db.Column(db.String(255), nullable=False)
     analisis_ia = db.Column(db.Text, nullable=True)
 
     def to_dict(self):
         return {
             'id': self.id,
-            'name': self.name,
-            'affiliate_link': self.affiliate_link,
+            'nombre_producto': self.nombre_producto,
+            'link_afiliado': self.link_afiliado,
             'analisis_ia': self.analisis_ia
         }
 
@@ -41,14 +42,14 @@ def index():
 def handle_products():
     if request.method == 'POST':
         data = request.json
-        name = data.get('name')
-        affiliate_link = data.get('affiliate_link')
+        nombre_producto = data.get('nombre_producto')
+        link_afiliado = data.get('link_afiliado')
 
-        if not name or not affiliate_link:
+        if not nombre_producto or not link_afiliado:
             return jsonify({'error': 'Missing data'}), 400
 
         try:
-            new_product = Product(name=name, affiliate_link=affiliate_link)
+            new_product = Product(nombre_producto=nombre_producto, link_afiliado=link_afiliado)
             db.session.add(new_product)
             db.session.commit()
         except Exception as e:
@@ -58,8 +59,8 @@ def handle_products():
         # ENVÍO A N8N CON LOS CAMPOS CORRECTOS
         try:
             webhook_payload = {
-                'nombre': name,  # Coincide con n8n
-                'link': affiliate_link # Coincide con n8n
+                'nombre': nombre_producto,  # Coincide con n8n
+                'link': link_afiliado # Coincide con n8n
             }
             # Enviamos el POST y no esperamos respuesta para no demorar la web
             requests.post(WEBHOOK_URL, json=webhook_payload, timeout=5)

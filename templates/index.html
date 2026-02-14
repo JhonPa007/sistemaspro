@@ -22,12 +22,13 @@
                 <h2>Nuevo Producto</h2>
                 <form id="productForm">
                     <div class="form-group">
-                        <label for="name">Nombre del Producto</label>
-                        <input type="text" id="name" name="name" placeholder="Ej. Curso de Excel" required>
+                        <label for="nombre_producto">Nombre del Producto</label>
+                        <input type="text" id="nombre_producto" name="nombre_producto" placeholder="Ej. Curso de Excel"
+                            required>
                     </div>
                     <div class="form-group">
-                        <label for="affiliate_link">Link de Afiliado</label>
-                        <input type="url" id="affiliate_link" name="affiliate_link" placeholder="https://..." required>
+                        <label for="link_afiliado">Link de Afiliado</label>
+                        <input type="url" id="link_afiliado" name="link_afiliado" placeholder="https://..." required>
                     </div>
                     <button type="submit" id="submitBtn">Registrar Producto</button>
                     <!-- Toast Notification Container -->
@@ -72,8 +73,8 @@
                 submitBtn.textContent = 'Enviando...';
 
                 const formData = {
-                    name: document.getElementById('name').value,
-                    affiliate_link: document.getElementById('affiliate_link').value
+                    nombre_producto: document.getElementById('nombre_producto').value,
+                    link_afiliado: document.getElementById('link_afiliado').value
                 };
 
                 try {
@@ -123,9 +124,9 @@
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${product.id}</td>
-                        <td>${product.name}</td>
-                        <td><a href="${product.affiliate_link}" target="_blank" class="link-btn">Ver Link</a></td>
-                        <td><a href="/producto/${product.id}" class="analysis-btn">Ver Análisis</a></td>
+                        <td>${product.nombre_producto}</td>
+                        <td><a href="${product.link_afiliado}" target="_blank" class="link-btn">Ver Link</a></td>
+                        <td><a href="/producto/${product.id}" class="analysis-btn">Ver Informe IA</a></td>
                     `;
                     tableBody.appendChild(row);
                 });
