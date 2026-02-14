@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # URL de PRODUCCIÓN de n8n (Asegúrate de quitar el "-test")
-WEBHOOK_URL = "https://api.sistemaspro.online/webhook/nuevo-producto"
+WEBHOOK_URL = "https://api.sistemaspro.online/webhook-test/nuevo-producto"
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
