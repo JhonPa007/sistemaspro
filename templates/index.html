@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial_scale=1.0">
+    <title>SistemasPro - Gestión de Productos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Google Fonts for a premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestión de Productos</h1>
+            <p>Registra nuevos productos y enlaces de afiliado.</p>
+        </header>
+
+        <main>
+            <section class="form-section">
+                <h2>Nuevo Producto</h2>
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="name">Nombre del Producto</label>
+                        <input type="text" id="name" name="name" placeholder="Ej. Curso de Excel" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="affiliate_link">Link de Afiliado</label>
+                        <input type="url" id="affiliate_link" name="affiliate_link" placeholder="https://..." required>
+                    </div>
+                    <button type="submit" id="submitBtn">Registrar Producto</button>
+                    <div id="message" class="message"></div>
+                </form>
+            </section>
+
+            <section class="table-section">
+                <h2>Productos Registrados</h2>
+                <div class="table-container">
+                    <table id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Producto</th>
+                                <th>Link de Afiliado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Products will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('productForm');
+            const tableBody = document.querySelector('#productsTable tbody');
+            const messageDiv = document.getElementById('message');
+
+            // Load products on start
+            fetchProducts();
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = document.getElementById('submitBtn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Enviando...';
+
+                const formData = {
+                    name: document.getElementById('name').value,
+                    affiliate_link: document.getElementById('affiliate_link').value
+                };
+
+                try {
+                    const response = await fetch('/api/products', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (response.ok) {
+                        const newProduct = await response.json();
+                        showMessage('Producto registrado exitosamente', 'success');
+                        form.reset();
+                        fetchProducts(); // Refresh table
+                    } else {
+                        showMessage('Error al registrar el producto', 'error');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error de conexión', 'error');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Registrar Producto';
+                }
+            });
+
+            async function fetchProducts() {
+                try {
+                    const response = await fetch('/api/products');
+                    const products = await response.json();
+                    renderTable(products);
+                } catch (error) {
+                    console.error('Error fetching products:', error);
+                }
+            }
+
+            function renderTable(products) {
+                tableBody.innerHTML = '';
+                if (products.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="3" style="text-align:center;">No hay productos registrados.</td></tr>';
+                    return;
+                }
+                products.forEach(product => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${product.id}</td>
+                        <td>${product.name}</td>
+                        <td><a href="${product.affiliate_link}" target="_blank" class="link-btn">Ver Link</a></td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+
+            function showMessage(text, type) {
+                messageDiv.textContent = text;
+                messageDiv.className = `message ${type}`;
+                setTimeout(() => {
+                    messageDiv.textContent = '';
+                    messageDiv.className = 'message';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
