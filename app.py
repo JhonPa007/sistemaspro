@@ -20,12 +20,14 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     affiliate_link = db.Column(db.String(255), nullable=False)
+    analisis_ia = db.Column(db.Text, nullable=True)
 
     def to_dict(self):
         return {
             'id': self.id,
             'name': self.name,
-            'affiliate_link': self.affiliate_link
+            'affiliate_link': self.affiliate_link,
+            'analisis_ia': self.analisis_ia
         }
 
 with app.app_context():
@@ -65,6 +67,11 @@ def handle_products():
     elif request.method == 'GET':
         products = Product.query.all()
         return jsonify([p.to_dict() for p in products])
+
+@app.route('/producto/<int:product_id>')
+def view_analysis(product_id):
+    product = Product.query.get_or_404(product_id)
+    return render_template('analysis.html', product=product)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

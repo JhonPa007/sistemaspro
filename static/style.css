@@ -198,3 +198,141 @@ tr:hover {
     background-color: #ef4444;
     /* Red */
 }
+
+/* Analysis Button */
+.analysis-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #8b5cf6;
+    /* Violet */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.analysis-btn:hover {
+    background-color: #7c3aed;
+}
+
+/* Analysis Page Styles */
+.analysis-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f3f4f6;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.product-header h2 {
+    margin: 0;
+    font-size: 2.0rem;
+    color: #111827;
+}
+
+.affiliate-badge {
+    background-color: #eff6ff;
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.affiliate-badge:hover {
+    background-color: #dbeafe;
+}
+
+.analysis-content h3 {
+    font-size: 1.25rem;
+    color: #4b5563;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.report-text {
+    background-color: #f8fafc;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.report-text pre {
+    white-space: pre-wrap;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #374151;
+    margin: 0;
+}
+
+.no-data {
+    color: #6b7280;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.actions {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #fff;
+    color: #4b5563;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
+    color: #1f2937;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Response for mobile */
+@media (max-width: 640px) {
+    .product-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .analysis-card {
+        padding: 20px;
+    }
+}

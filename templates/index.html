@@ -44,6 +44,7 @@
                                 <th>ID</th>
                                 <th>Producto</th>
                                 <th>Link de Afiliado</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -123,6 +124,7 @@
                         <td>${product.id}</td>
                         <td>${product.name}</td>
                         <td><a href="${product.affiliate_link}" target="_blank" class="link-btn">Ver Link</a></td>
+                        <td><a href="/producto/${product.id}" class="analysis-btn">Ver Análisis</a></td>
                     `;
                     tableBody.appendChild(row);
                 });

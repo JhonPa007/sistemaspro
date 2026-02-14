@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial_scale=1.0">
+    <title>Análisis de Producto - {{ product.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Análisis de Producto</h1>
+            <p>Informe detallado generado por Inteligencia Artificial</p>
+        </header>
+
+        <main>
+            <div class="analysis-card">
+                <div class="product-header">
+                    <h2>{{ product.name }}</h2>
+                    <a href="{{ product.affiliate_link }}" target="_blank" class="affiliate-badge">Link de Afiliado
+                        ↗</a>
+                </div>
+
+                <div class="analysis-content">
+                    <h3>✨ Informe de Marketing de Gemini</h3>
+                    <div class="report-text">
+                        {% if product.analisis_ia %}
+                        <pre>{{ product.analisis_ia }}</pre>
+                        {% else %}
+                        <p class="no-data">El análisis aún no está disponible. Por favor, espera a que n8n procese la
+                            información.</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <a href="/" class="back-btn">← Volver al listado</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
