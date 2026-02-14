@@ -47,9 +47,13 @@ def handle_products():
         if not name or not affiliate_link:
             return jsonify({'error': 'Missing data'}), 400
 
-        new_product = Product(name=name, affiliate_link=affiliate_link)
-        db.session.add(new_product)
-        db.session.commit()
+        try:
+            new_product = Product(name=name, affiliate_link=affiliate_link)
+            db.session.add(new_product)
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            return jsonify({'error': str(e)}), 500
 
         # ENVÍO A N8N CON LOS CAMPOS CORRECTOS
         try:
