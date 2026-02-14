@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial_scale=1.0">
@@ -8,6 +9,7 @@
     <!-- Google Fonts for a premium look -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -28,7 +30,8 @@
                         <input type="url" id="affiliate_link" name="affiliate_link" placeholder="https://..." required>
                     </div>
                     <button type="submit" id="submitBtn">Registrar Producto</button>
-                    <div id="message" class="message"></div>
+                    <!-- Toast Notification Container -->
+                    <div id="toast" class="toast"></div>
                 </form>
             </section>
 
@@ -56,7 +59,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('productForm');
             const tableBody = document.querySelector('#productsTable tbody');
-            const messageDiv = document.getElementById('message');
+            const toast = document.getElementById('toast');
 
             // Load products on start
             fetchProducts();
@@ -83,15 +86,15 @@
 
                     if (response.ok) {
                         const newProduct = await response.json();
-                        showMessage('Producto registrado exitosamente', 'success');
+                        showToast('🚀 ¡Producto enviado! Gemini está analizando el contenido ahora mismo...', 'success');
                         form.reset();
                         fetchProducts(); // Refresh table
                     } else {
-                        showMessage('Error al registrar el producto', 'error');
+                        showToast('Error al registrar el producto', 'error');
                     }
                 } catch (error) {
                     console.error('Error:', error);
-                    showMessage('Error de conexión', 'error');
+                    showToast('Error de conexión', 'error');
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Registrar Producto';
@@ -125,15 +128,15 @@
                 });
             }
 
-            function showMessage(text, type) {
-                messageDiv.textContent = text;
-                messageDiv.className = `message ${type}`;
+            function showToast(text, type) {
+                toast.textContent = text;
+                toast.className = `toast show ${type}`;
                 setTimeout(() => {
-                    messageDiv.textContent = '';
-                    messageDiv.className = 'message';
-                }, 3000);
+                    toast.className = 'toast';
+                }, 5000);
             }
         });
     </script>
 </body>
+
 </html>

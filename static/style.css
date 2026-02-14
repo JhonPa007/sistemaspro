@@ -41,7 +41,8 @@ header p {
     color: #6b7280;
 }
 
-.form-section, .table-section {
+.form-section,
+.table-section {
     background: var(--card-bg);
     padding: 30px;
     border-radius: 12px;
@@ -74,7 +75,8 @@ input {
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.2s;
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    box-sizing: border-box;
+    /* Ensure padding doesn't affect width */
 }
 
 input:focus {
@@ -134,7 +136,8 @@ table {
     margin-top: 10px;
 }
 
-th, td {
+th,
+td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
@@ -158,4 +161,40 @@ tr:hover {
 
 .link-btn:hover {
     text-decoration: underline;
+}
+
+/* Toast Notification */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    right: 30px;
+    top: 30px;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: opacity 0.5s, top 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    top: 50px;
+    /* Slight slide down effect */
+}
+
+.toast.success {
+    background-color: #10b981;
+    /* Green */
+}
+
+.toast.error {
+    background-color: #ef4444;
+    /* Red */
 }
