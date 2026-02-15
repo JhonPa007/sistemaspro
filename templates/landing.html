@@ -6,73 +6,108 @@
     <meta name="viewport" content="width=device-width, initial_scale=1.0">
     <title>SistemasPro AI - Consultoría Tecnológica</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="landing-page">
+    <div class="background-glow"></div>
+
     <header class="landing-header">
-        <div class="container">
-            <nav>
-                <div class="logo">SistemasPro AI</div>
-                <div class="nav-links">
-                    <a href="#servicios">Servicios</a>
-                    <a href="#partners">Partners</a>
-                    <a href="#contacto" class="cta-button">Agendar Consulta</a>
-                </div>
+        <div class="container navbar">
+            <div class="logo">SistemasPro <span class="text-accent">AI</span></div>
+            <nav class="nav-links">
+                <a href="#servicios">Servicios</a>
+                <a href="#partners">Partners</a>
             </nav>
+            <a href="#contacto" class="cta-button">Agendar Consulta</a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1>Optimizando el Crecimiento B2B con Inteligencia Artificial y Automatización</h1>
-            <p>Ayudamos a PYMES a escalar mediante la implementación estratégica de soluciones SaaS y agentes autónomos.
-            </p>
-            <div class="hero-actions">
-                <a href="#contacto" class="primary-btn">Empezar Transformación</a>
+            <div class="hero-content">
+                <span class="badge">Agencia de Automatización B2B</span>
+                <h1>Optimizando el Crecimiento <span class="text-gradient">Empresarial</span> con Inteligencia
+                    Artificial</h1>
+                <p>Ayudamos a PYMES a escalar mediante la implementación estratégica de soluciones SaaS y agentes
+                    autónomos.</p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="primary-btn glow-effect">Empezar Transformación</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="tech-stack">
+        <div class="container">
+            <p class="section-label">POTENCIADO POR LÍDERES DE LA INDUSTRIA</p>
+            <div class="partners-grid">
+                <div class="partner-item">CustomGPT</div>
+                <div class="partner-item">HeyGen</div>
+                <div class="partner-item">GoHighLevel</div>
+                <div class="partner-item">OpenAI</div>
             </div>
         </div>
     </section>
 
     <section id="servicios" class="services">
         <div class="container">
-            <h2>Nuestras Soluciones</h2>
+            <div class="section-header">
+                <h2>Nuestras Soluciones</h2>
+                <p>Tecnología de vanguardia para resultados tangibles.</p>
+            </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="icon">🤖</div>
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 10 10 0 0 0-4 4 4 4 0 0 1-5-5">
+                            </path>
+                            <path d="M8.5 8.5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5Z"></path>
+                        </svg>
+                    </div>
                     <h3>Consultoría IA</h3>
                     <p>Implementación de modelos RAG y CustomGPTs para potenciar tu base de conocimiento empresarial.
                     </p>
                 </div>
                 <div class="service-card">
-                    <div class="icon">⚙️</div>
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
                     <h3>Automatización de Ventas</h3>
                     <p>Diseño de flujos de trabajo CRM y automatización de outreach con GoHighLevel.</p>
                 </div>
                 <div class="service-card">
-                    <div class="icon">🌍</div>
-                    <h3>Marketing Generativo (GEO)</h3>
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3>Marketing Generativo</h3>
                     <p>Estrategias avanzadas de posicionamiento en motores de búsqueda impulsados por IA.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="partners" class="partners">
-        <div class="container">
-            <h2>Tecnologías Partners</h2>
-            <div class="partners-grid">
-                <div class="partner-logo">CustomGPT</div>
-                <div class="partner-logo">HeyGen</div>
-                <div class="partner-logo">GoHighLevel</div>
-                <div class="partner-logo">OpenAI</div>
-            </div>
-        </div>
-    </section>
-
     <footer class="landing-footer">
         <div class="container">
-            <p>&copy; 2026 SistemasPro AI. Todos los derechos reservados.</p>
+            <div class="footer-content">
+                <div class="footer-logo">SistemasPro AI</div>
+                <p>&copy; 2026. Construyendo el futuro de la automatización.</p>
+            </div>
         </div>
     </footer>
 </body>
