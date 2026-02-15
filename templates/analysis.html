@@ -36,6 +36,40 @@
                     </div>
                 </div>
 
+                <div class="analysis-content" style="margin-top: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3>📧 Secuencia de Venta (Outreach)</h3>
+                        <button onclick="copyOutreach()" class="copy-btn">Copiar Correos</button>
+                    </div>
+                    <div class="outreach-box">
+                        {% if product.outreach_emails %}
+                        <div id="outreachText" style="white-space: pre-wrap;">{{ product.outreach_emails }}</div>
+                        {% else %}
+                        <p class="no-data">La secuencia de correos aún no está disponible.</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <script>
+                    function copyOutreach() {
+                        const text = document.getElementById('outreachText').innerText;
+                        navigator.clipboard.writeText(text).then(() => {
+                            const btn = document.querySelector('.copy-btn');
+                            const originalText = btn.innerText;
+                            btn.innerText = '¡Copiado!';
+                            btn.style.backgroundColor = '#10b981';
+                            setTimeout(() => {
+                                btn.innerText = originalText;
+                                btn.style.backgroundColor = '';
+                            }, 2000);
+                        }).catch(err => {
+                            console.error('Error al copiar:', err);
+                            alert('No se pudo copiar el texto');
+                        });
+                    }
+                </script>
+
                 <div class="actions">
                     <a href="/admin-panel-privado" class="back-btn">Volver al Panel</a>
                 </div>

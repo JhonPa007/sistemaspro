@@ -478,6 +478,7 @@ body.landing-page {
 
 .text-gradient {
     background: linear-gradient(135deg, #fff 30%, #38bdf8 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -670,4 +671,36 @@ body.landing-page {
         gap: 30px;
         text-align: center;
     }
+}
+
+/* Outreach Section Styles */
+.outreach-box {
+    background-color: #1e293b;
+    /* Dark Slate Blue */
+    color: #f8fafc;
+    /* Light text for contrast */
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #334155;
+    margin-top: 15px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+.copy-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+    width: auto;
+    /* Override default 100% width for buttons */
+}
+
+.copy-btn:hover {
+    background-color: #2563eb;
 }

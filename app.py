@@ -22,13 +22,15 @@ class Product(db.Model):
     nombre_producto = db.Column(db.String(100), nullable=False)
     link_afiliado = db.Column(db.String(255), nullable=False)
     analisis_ia = db.Column(db.Text, nullable=True)
+    outreach_emails = db.Column(db.Text, nullable=True)
 
     def to_dict(self):
         return {
             'id': self.id,
             'nombre_producto': self.nombre_producto,
             'link_afiliado': self.link_afiliado,
-            'analisis_ia': self.analisis_ia
+            'analisis_ia': self.analisis_ia,
+            'outreach_emails': self.outreach_emails
         }
 
 with app.app_context():
