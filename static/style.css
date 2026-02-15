@@ -340,12 +340,18 @@ tr:hover {
 /* Landing Page Styles - Futuristic Enterprise */
 body.landing-page {
     background-color: #020617;
-
     /* Slate 950 - Deep Dark */
     color: #f8fafc;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     overflow-x: hidden;
     position: relative;
+
+    /* Reset Global Styles */
+    display: block;
+    margin: 0;
+    padding: 0;
+    justify-content: normal;
+    min-height: auto;
 }
 
 /* Background Glow Effect */
@@ -635,8 +641,12 @@ body.landing-page {
 }
 
 @media (max-width: 768px) {
-    .heroes h1 {
-        font-size: 3rem;
+    .hero {
+        padding: 100px 0 60px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
     }
 
     .landing-header .navbar {
@@ -644,8 +654,19 @@ body.landing-page {
         gap: 20px;
     }
 
+    .landing-header .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
     .footer-content {
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
+        text-align: center;
     }
 }
