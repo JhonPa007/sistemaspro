@@ -59,6 +59,7 @@ def handle_products():
         # ENVÍO A N8N CON LOS CAMPOS CORRECTOS
         try:
             webhook_payload = {
+                'id': new_product.id,
                 'nombre': nombre_producto,  # Coincide con n8n
                 'link': link_afiliado # Coincide con n8n
             }
