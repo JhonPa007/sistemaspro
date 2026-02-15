@@ -346,12 +346,13 @@ body.landing-page {
     overflow-x: hidden;
     position: relative;
 
-    /* Reset Global Styles */
-    display: block;
+    /* Reset Global Styles - FORCE */
+    display: block !important;
     margin: 0;
     padding: 0;
     justify-content: normal;
-    min-height: auto;
+    min-height: auto !important;
+    width: 100%;
 }
 
 /* Background Glow Effect */
