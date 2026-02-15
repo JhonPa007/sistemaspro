@@ -2,8 +2,19 @@ from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import requests
 import os
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
+
+# Configuración de Flask-Mail (Zoho)
+app.config['MAIL_SERVER'] = 'smtp.zoho.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = 'jhon.casas@sistemaspro.online'
+app.config['MAIL_PASSWORD'] = 'C4S4sJh0n*' # En producción, usar os.environ.get('MAIL_PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = 'jhon.casas@sistemaspro.online'
+
+mail = Mail(app)
 
 # Configuración para Railway (usará SQLite temporalmente o podrías conectar tu Postgres de Railway luego)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
@@ -84,6 +95,60 @@ def handle_products():
 def view_analysis(product_id):
     product = Product.query.get_or_404(product_id)
     return render_template('analysis.html', product=product)
+
+@app.route('/enviar-consulta', methods=['POST'])
+def enviar_consulta():
+    data = request.json
+    nombre = data.get('nombre')
+    email = data.get('email')
+    empresa = data.get('empresa')
+    solucion = data.get('solucion')
+    mensaje = data.get('mensaje')
+
+    if not nombre or not email:
+        return jsonify({'error': 'Faltan datos obligatorios'}), 400
+
+    # 1. Correo al Administrador (Lead)
+    try:
+        msg_admin = Message(
+            subject=f'Nuevo Lead: {empresa} - {solucion}',
+            recipients=['jhon.casas@sistemaspro.online'],
+            body=f"""
+Nuevo contacto desde la web:
+
+Nombre: {nombre}
+Empresa: {empresa}
+Email: {email}
+Solución de Interés: {solucion}
+
+Mensaje:
+{mensaje}
+            """
+        )
+        mail.send(msg_admin)
+
+        # 2. Auto-respuesta al Cliente
+        msg_cliente = Message(
+            subject='Recibimos tu consulta - SistemasPro AI',
+            recipients=[email],
+            body=f"""Hola {nombre},
+
+Gracias por contactar a SistemasPro AI.
+Hemos recibido tu consulta sobre {solucion}.
+
+Un consultor experto en soluciones de Inteligencia Artificial se pondrá en contacto contigo en breve para analizar cómo podemos potenciar {empresa}.
+
+Atentamente,
+El equipo de SistemasPro AI
+            """
+        )
+        mail.send(msg_cliente)
+
+        return jsonify({'message': 'Correo enviado correctamente'}), 200
+
+    except Exception as e:
+        print(f"Error enviando correo: {e}")
+        return jsonify({'error': 'Error al enviar el mensaje'}), 500
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
