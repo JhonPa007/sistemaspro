@@ -35,6 +35,10 @@ with app.app_context():
     db.create_all()
 
 @app.route('/')
+def landing():
+    return render_template('landing.html')
+
+@app.route('/admin-panel-privado')
 def index():
     return render_template('index.html')
 
