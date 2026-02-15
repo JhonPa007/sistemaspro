@@ -144,6 +144,7 @@ body {
 
 .text-gradient {
     background: linear-gradient(135deg, #fff 30%, #38bdf8 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -339,4 +340,146 @@ body {
         gap: 30px;
         text-align: center;
     }
+}
+
+/* --- High Authority Upgrade Styles --- */
+
+/* Card Header Layout */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.service-card .icon-box {
+    margin-bottom: 0;
+    /* Override previous margin */
+    width: 40px;
+    height: 40px;
+}
+
+.service-card h3 {
+    margin-bottom: 0;
+    font-size: 1.4rem;
+}
+
+/* Feature Lists */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 30px;
+    text-align: left;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+.check-icon {
+    width: 18px;
+    height: 18px;
+    color: #38bdf8;
+    /* Sky 400 */
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+/* Trust Badges */
+.trust-badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.trust-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(16, 185, 129, 0.1);
+    /* Emerald tint */
+    color: #34d399;
+    /* Emerald 400 */
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    letter-spacing: 0.02em;
+}
+
+/* Card Action Buttons */
+.card-action-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+    color: white;
+    font-weight: 700;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+    filter: brightness(1.1);
+}
+
+.card-action-btn.secondary {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-action-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Featured Card Highlight */
+.featured-card {
+    border-color: rgba(56, 189, 248, 0.5);
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.4) 100%);
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.1);
+    position: relative;
+}
+
+/* Resources Section */
+.resources-section {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.text-link:hover {
+    color: #38bdf8;
+}
+
+.text-link .arrow {
+    transition: transform 0.3s;
+}
+
+.text-link:hover .arrow {
+    transform: translateX(4px);
 }
