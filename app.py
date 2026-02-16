@@ -133,13 +133,19 @@ Mensaje:
             recipients=[email],
             body=f"""Hola {nombre},
 
-Gracias por contactar a SistemasPro AI.
-Hemos recibido tu consulta sobre {solucion}.
+Gracias por contactar a SistemasPro AI. Hemos recibido tu consulta sobre {solucion} para {empresa}.
 
-Un consultor experto en soluciones de Inteligencia Artificial se pondrá en contacto contigo en breve para analizar cómo podemos potenciar {empresa}.
+Mientras nuestro equipo analiza tu caso, queremos recordarte por qué somos la elección segura para tu implementación de IA:
+
+1. SEGURIDAD EMPRESARIAL: Operamos bajo estándares SOC-2 Type 2 y GDPR. Tus datos nunca se usan para entrenar modelos públicos.
+2. CERO ALUCINACIONES: Nuestra tecnología RAG cita fuentes verificables en cada respuesta, eliminando riesgos legales.
+3. ROI INMEDIATO: Nuestros clientes reportan un ahorro promedio del 50% en costos operativos desde el primer mes.
+
+Un consultor experto te contactará en breve para agendar una demostración personalizada.
 
 Atentamente,
 El equipo de SistemasPro AI
+SistemasPro.online
             """
         )
         mail.send(msg_cliente)
