@@ -329,6 +329,53 @@
                 submitBtn.innerText = originalBtnText;
             }
         });
+
+        // Audit Form Script
+        document.getElementById('auditForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('auditSubmitBtn');
+            const messageDiv = document.getElementById('auditMessage');
+            const originalBtnText = submitBtn.innerText;
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Analizando...';
+            messageDiv.style.display = 'none';
+
+            const formData = {
+                nombre: document.getElementById('audit_nombre').value,
+                email: document.getElementById('audit_email').value,
+                empresa: document.getElementById('audit_empresa').value,
+                url_web: document.getElementById('audit_url').value
+            };
+
+            try {
+                const response = await fetch('/solicitar-auditoria', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    messageDiv.innerText = '✅ ' + data.message;
+                    messageDiv.className = 'audit-message success';
+                    messageDiv.style.display = 'block';
+                    document.getElementById('auditForm').reset();
+                } else {
+                    throw new Error(data.error || 'Error al solicitar auditoría');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                messageDiv.innerText = '❌ Error de conexión. Inténtalo de nuevo.';
+                messageDiv.className = 'audit-message error';
+                messageDiv.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalBtnText;
+            }
+        });
     </script>
 
     <footer class="landing-footer">

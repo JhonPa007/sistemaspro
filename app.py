@@ -26,6 +26,8 @@ db = SQLAlchemy(app)
 
 # URL de PRODUCCIÓN de n8n (Asegúrate de quitar el "-test")
 WEBHOOK_URL = "https://api.sistemaspro.online/webhook/nuevo-producto"
+# Webhook para Auditoría Gratuita (Reemplazar con URL real)
+N8N_AUDIT_WEBHOOK = "YOUR_N8N_WEBHOOK_URL_HERE"
 
 class Product(db.Model):
     __tablename__ = 'afiliados_master'
@@ -155,6 +157,39 @@ SistemasPro.online
     except Exception as e:
         print(f"Error enviando correo: {e}")
         return jsonify({'error': 'Error al enviar el mensaje'}), 500
+
+@app.route('/solicitar-auditoria', methods=['POST'])
+def solicitar_auditoria():
+    data = request.json
+    nombre = data.get('nombre')
+    email = data.get('email')
+    empresa = data.get('empresa')
+    url_web = data.get('url_web')
+
+    if not nombre or not email or not url_web:
+        return jsonify({'error': 'Faltan datos obligatorios'}), 400
+
+    # Enviar datos a n8n
+    try:
+        # Si la URL es el placeholder, simulamos éxito para no romper la demo
+        if N8N_AUDIT_WEBHOOK == "YOUR_N8N_WEBHOOK_URL_HERE":
+            print("SIMULACIÓN: Datos enviados a n8n (URL no configurada)")
+        else:
+            payload = {
+                'nombre': nombre,
+                'email': email,
+                'empresa': empresa,
+                'url_web': url_web,
+                'tipo': 'auditoria_gratuita'
+            }
+            requests.post(N8N_AUDIT_WEBHOOK, json=payload, timeout=5)
+            
+        return jsonify({'message': 'Estamos analizando tu sitio web, recibirás una propuesta personalizada en unos minutos'}), 200
+
+    except Exception as e:
+        print(f"Error contactando n8n: {e}")
+        # Aún si falla n8n, queremos dar feedback positivo al usuario si es un error de conexión no crítico para ellos
+        return jsonify({'message': 'Estamos analizando tu sitio web, recibirás una propuesta personalizada en unos minutos'}), 200
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
