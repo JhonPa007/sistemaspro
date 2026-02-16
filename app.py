@@ -180,24 +180,30 @@ def solicitar_auditoria():
 
     # Enviar datos a n8n
     try:
-        # Si la URL es el placeholder, simulamos éxito para no romper la demo
-        if N8N_AUDIT_WEBHOOK == "YOUR_N8N_WEBHOOK_URL_HERE":
-            print("SIMULACIÓN: Datos enviados a n8n (URL no configurada)")
-        else:
-            payload = {
-                'nombre': nombre,
-                'email': email,
-                'empresa': empresa,
-                'url_web': url_web,
-                'tipo': 'auditoria_gratuita'
-            }
-            requests.post(N8N_AUDIT_WEBHOOK, json=payload, timeout=5)
-            
+        payload = {
+            'nombre': nombre,
+            'email': email,
+            'empresa': empresa,
+            'url_web': url_web,
+            'tipo': 'auditoria_gratuita'
+        }
+        
+        print(f"Enviando payload a n8n ({N8N_AUDIT_WEBHOOK}): {payload}")
+        
+        response = requests.post(N8N_AUDIT_WEBHOOK, json=payload, timeout=10)
+        
+        print(f"Respuesta de n8n: {response.status_code} - {response.text}")
+        
+        if response.status_code != 200:
+            print(f"ADVERTENCIA: n8n respondió con error {response.status_code}")
+
         return jsonify({'message': 'Estamos analizando tu sitio web, recibirás una propuesta personalizada en unos minutos'}), 200
 
     except Exception as e:
-        print(f"Error contactando n8n: {e}")
-        # Aún si falla n8n, queremos dar feedback positivo al usuario si es un error de conexión no crítico para ellos
+        import traceback
+        print(f"ERROR CRÍTICO contactando n8n: {e}")
+        print(traceback.format_exc())
+        # Return success to UI but log error
         return jsonify({'message': 'Estamos analizando tu sitio web, recibirás una propuesta personalizada en unos minutos'}), 200
 
 if __name__ == "__main__":
