@@ -25,9 +25,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # URL de PRODUCCIÓN de n8n (Asegúrate de quitar el "-test")
-WEBHOOK_URL = "https://api.sistemaspro.online/webhook-test/nuevo-producto"
+WEBHOOK_URL = "https://api.sistemaspro.online/webhook/nuevo-producto"
 # Webhook para Auditoría Gratuita (Reemplazar con URL real)
-N8N_AUDIT_WEBHOOK = "https://api.sistemaspro.online/webhook-test/webhook-test/nuevo-prospecto"
+N8N_AUDIT_WEBHOOK = "https://api.sistemaspro.online/webhook-test/nuevo-prospecto"
 
 class Product(db.Model):
     __tablename__ = 'afiliados_master'
