@@ -25,7 +25,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # URL de PRODUCCIÓN de n8n (Asegúrate de quitar el "-test")
-WEBHOOK_URL = "https://api.sistemaspro.online/webhook-test/nuevo-producto"
+WEBHOOK_URL = "https://api.sistemaspro.online/webhook-test/nuevo-prospecto"
 # Webhook para Auditoría Gratuita (Reemplazar con URL real)
 N8N_AUDIT_WEBHOOK = "https://api.sistemaspro.online/webhook-test/nuevo-prospecto"
 
@@ -156,8 +156,15 @@ SistemasPro.online
 
         return jsonify({'message': 'Correo enviado correctamente'}), 200
 
+        return jsonify({'message': 'Correo enviado correctamente'}), 200
+
     except Exception as e:
+        import traceback
+        error_details = traceback.format_exc()
         print(f"Error enviando correo: {e}")
+        print(error_details)
+        # Return specific error to frontend for debugging
+        return jsonify({'error': f'Error al enviar el mensaje: {str(e)}'}), 500
         return jsonify({'error': 'Error al enviar el mensaje'}), 500
 
 @app.route('/solicitar-auditoria', methods=['POST'])
