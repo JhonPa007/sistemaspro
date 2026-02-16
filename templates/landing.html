@@ -243,15 +243,20 @@
                             <input type="text" id="empresa" name="empresa" required placeholder="Nombre de tu empresa">
                         </div>
                         <div class="form-group">
-                            <label for="solucion">Solución de Interés</label>
-                            <select id="solucion" name="solucion" required>
-                                <option value="" disabled selected>Selecciona una opción</option>
-                                <option value="CustomGPT">CustomGPT (Agente IA)</option>
-                                <option value="HeyGen">HeyGen (Video IA)</option>
-                                <option value="GoHighLevel">GoHighLevel (CRM & Ventas)</option>
-                                <option value="Consultoría General">Consultoría General</option>
-                            </select>
+                            <label for="url_sitio">Sitio Web</label>
+                            <input type="url" id="url_sitio" name="url_sitio" placeholder="https://tuempresa.com">
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="solucion">Solución de Interés</label>
+                        <select id="solucion" name="solucion" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="CustomGPT">CustomGPT (Agente IA)</option>
+                            <option value="HeyGen">HeyGen (Video IA)</option>
+                            <option value="GoHighLevel">GoHighLevel (CRM & Ventas)</option>
+                            <option value="Consultoría General">Consultoría General</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -296,6 +301,7 @@
                 nombre: document.getElementById('nombre').value,
                 email: document.getElementById('email').value,
                 empresa: document.getElementById('empresa').value,
+                url_sitio: document.getElementById('url_sitio').value,
                 solucion: document.getElementById('solucion').value,
                 mensaje: document.getElementById('mensaje').value
             };

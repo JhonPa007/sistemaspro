@@ -104,6 +104,7 @@ def enviar_consulta():
     nombre = data.get('nombre')
     email = data.get('email')
     empresa = data.get('empresa')
+    url_sitio = data.get('url_sitio', 'No especificado')
     solucion = data.get('solucion')
     mensaje = data.get('mensaje')
 
@@ -120,6 +121,7 @@ Nuevo contacto desde la web:
 
 Nombre: {nombre}
 Empresa: {empresa}
+Sitio Web: {url_sitio}
 Email: {email}
 Solución de Interés: {solucion}
 
