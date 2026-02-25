@@ -42,6 +42,7 @@
             <div class="blog-grid">
                 {% for blog in blogs %}
                 <div class="blog-card">
+                    <img src="{{ url_for('static', filename=blog.image) }}" alt="{{ blog.title }}" class="blog-image">
                     <div class="blog-meta">
                         <span>{{ blog.category }}</span> • <span>{{ blog.date }}</span>
                     </div>

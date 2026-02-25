@@ -867,6 +867,14 @@ body {
     box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
+.blog-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
 .blog-meta {
     color: #38bdf8;
     font-size: 0.9rem;
@@ -950,6 +958,16 @@ body {
     margin-bottom: 50px;
     padding-bottom: 30px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.post-hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .post-content {

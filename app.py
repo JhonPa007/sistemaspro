@@ -65,7 +65,8 @@ def blog_index():
             'title': '¿La IA reemplazará a mis empleados? El mito de la sustitución frente a la realidad de la colaboración.',
             'excerpt': 'Existe un temor generalizado en el sector empresarial: que la Inteligencia Artificial llegue para sustituir el talento humano. Sin embargo, los datos y la implementación real en 2026 nos muestran una realidad muy distinta.',
             'category': 'IA y Negocios',
-            'date': 'Febrero 2026'
+            'date': 'Febrero 2026',
+            'image': 'img/blog1.jpg'
         }
     ]
     return render_template('blog_index.html', blogs=blogs)
