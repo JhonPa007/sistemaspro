@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial_scale=1.0">
+    <title>Blog - SistemasPro AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing.css') }}?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="landing-page">
+    <div class="background-glow"></div>
+
+    <header class="landing-header">
+        <div class="container navbar">
+            <a href="/" style="text-decoration: none;">
+                <div class="logo">SistemasPro <span class="text-accent">AI</span></div>
+            </a>
+            <nav class="nav-links">
+                <a href="/#servicios">Servicios</a>
+                <a href="/#partners">Partners</a>
+                <a href="/blog" style="color: #fff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);">Blog</a>
+            </nav>
+            <a href="/#contacto" class="cta-button">Agendar Consulta</a>
+        </div>
+    </header>
+
+    <div class="blog-header">
+        <div class="container">
+            <h1>Blog <span class="text-gradient">SistemasPro AI</span></h1>
+            <p>Descubre las últimas tendencias, estrategias y casos de éxito en la intersección de la IA y el mundo
+                empresarial.</p>
+        </div>
+    </div>
+
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                {% for blog in blogs %}
+                <div class="blog-card">
+                    <div class="blog-meta">
+                        <span>{{ blog.category }}</span> • <span>{{ blog.date }}</span>
+                    </div>
+                    <a href="/blog/{{ blog.id }}" class="blog-title">{{ blog.title }}</a>
+                    <p class="blog-excerpt">{{ blog.excerpt }}</p>
+                    <a href="/blog/{{ blog.id }}" class="read-more">
+                        Leer artículo
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <footer class="landing-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">SistemasPro AI</div>
+                <p>&copy; 2026. Construyendo el futuro de la automatización.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

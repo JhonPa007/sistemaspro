@@ -57,6 +57,25 @@ def landing():
 def index():
     return render_template('index.html')
 
+@app.route('/blog')
+def blog_index():
+    blogs = [
+        {
+            'id': 'la-ia-reemplazara-a-mis-empleados',
+            'title': '¿La IA reemplazará a mis empleados? El mito de la sustitución frente a la realidad de la colaboración.',
+            'excerpt': 'Existe un temor generalizado en el sector empresarial: que la Inteligencia Artificial llegue para sustituir el talento humano. Sin embargo, los datos y la implementación real en 2026 nos muestran una realidad muy distinta.',
+            'category': 'IA y Negocios',
+            'date': 'Febrero 2026'
+        }
+    ]
+    return render_template('blog_index.html', blogs=blogs)
+
+@app.route('/blog/<slug>')
+def blog_post(slug):
+    if slug == 'la-ia-reemplazara-a-mis-empleados':
+        return render_template('blog_post_1.html')
+    return "Blog no encontrado", 404
+
 @app.route('/api/products', methods=['GET', 'POST'])
 def handle_products():
     if request.method == 'POST':
