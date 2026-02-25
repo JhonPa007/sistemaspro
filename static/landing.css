@@ -963,7 +963,9 @@ body {
 .post-hero-image {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    max-height: 450px;
+    object-fit: contain;
+    background: rgba(15, 23, 42, 0.4);
     border-radius: 16px;
     margin-bottom: 40px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
