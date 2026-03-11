@@ -61,6 +61,14 @@ def index():
 def blog_index():
     blogs = [
         {
+            'id': 'el-correo-de-tu-empresa-necesita-un-cerebro',
+            'title': 'Por qué el correo de tu empresa necesita un "cerebro": Más allá de las respuestas automáticas.',
+            'excerpt': 'Todos conocemos las respuestas automáticas. En 2026, eso ya no es suficiente. Descubre cómo la IA Agéntica transforma tu correo en un sistema de toma de decisiones.',
+            'category': 'IA y Estrategia',
+            'date': 'Marzo 2026',
+            'image': 'img/blog2.jpg'
+        },
+        {
             'id': 'la-ia-reemplazara-a-mis-empleados',
             'title': '¿La IA reemplazará a mis empleados? El mito de la sustitución frente a la realidad de la colaboración.',
             'excerpt': 'Existe un temor generalizado en el sector empresarial: que la Inteligencia Artificial llegue para sustituir el talento humano. Sin embargo, los datos y la implementación real en 2026 nos muestran una realidad muy distinta.',
@@ -75,6 +83,8 @@ def blog_index():
 def blog_post(slug):
     if slug == 'la-ia-reemplazara-a-mis-empleados':
         return render_template('blog_post_1.html')
+    elif slug == 'el-correo-de-tu-empresa-necesita-un-cerebro':
+        return render_template('blog_post_2.html')
     return "Blog no encontrado", 404
 
 @app.route('/api/products', methods=['GET', 'POST'])
