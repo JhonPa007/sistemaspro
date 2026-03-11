@@ -61,6 +61,14 @@ def index():
 def blog_index():
     blogs = [
         {
+            'id': 'omnicanalidad-con-gohighlevel-como-estar-en-todas-partes',
+            'title': 'Omnicanalidad con GoHighLevel: Cómo estar en todas partes sin perder la cordura (ni el sueño).',
+            'excerpt': 'WhatsApp, Instagram, Correo... Descubre cómo centralizar tu comunicación y automatizar ventas con GHL e IA Agéntica.',
+            'category': 'GHL y Automatización',
+            'date': 'Marzo 2026',
+            'image': 'img/blog3.jpg'
+        },
+        {
             'id': 'el-correo-de-tu-empresa-necesita-un-cerebro',
             'title': 'Por qué el correo de tu empresa necesita un "cerebro": Más allá de las respuestas automáticas.',
             'excerpt': 'Todos conocemos las respuestas automáticas. En 2026, eso ya no es suficiente. Descubre cómo la IA Agéntica transforma tu correo en un sistema de toma de decisiones.',
@@ -85,6 +93,8 @@ def blog_post(slug):
         return render_template('blog_post_1.html')
     elif slug == 'el-correo-de-tu-empresa-necesita-un-cerebro':
         return render_template('blog_post_2.html')
+    elif slug == 'omnicanalidad-con-gohighlevel-como-estar-en-todas-partes':
+        return render_template('blog_post_3.html')
     return "Blog no encontrado", 404
 
 @app.route('/api/products', methods=['GET', 'POST'])
