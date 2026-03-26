@@ -61,6 +61,14 @@ def index():
 def blog_index():
     blogs = [
         {
+            'id': 'estan-seguros-tus-datos-con-la-ia',
+            'title': '¿Están seguros tus datos con la IA? La guía definitiva de privacidad para empresas modernas.',
+            'excerpt': 'Descubre la diferencia entre IA pública e IA corporativa y cómo proteger el activo más valioso de tu empresa en 2026.',
+            'category': 'Privacidad y Seguridad',
+            'date': 'Marzo 2026',
+            'image': 'img/blog4.jpg'
+        },
+        {
             'id': 'omnicanalidad-con-gohighlevel-como-estar-en-todas-partes',
             'title': 'Omnicanalidad con GoHighLevel: Cómo estar en todas partes sin perder la cordura (ni el sueño).',
             'excerpt': 'WhatsApp, Instagram, Correo... Descubre cómo centralizar tu comunicación y automatizar ventas con GHL e IA Agéntica.',
@@ -95,6 +103,8 @@ def blog_post(slug):
         return render_template('blog_post_2.html')
     elif slug == 'omnicanalidad-con-gohighlevel-como-estar-en-todas-partes':
         return render_template('blog_post_3.html')
+    elif slug == 'estan-seguros-tus-datos-con-la-ia':
+        return render_template('blog_post_4.html')
     return "Blog no encontrado", 404
 
 @app.route('/api/products', methods=['GET', 'POST'])
