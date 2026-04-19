@@ -49,8 +49,21 @@ class Product(db.Model):
 with app.app_context():
     db.create_all()
 
+def get_subdomain():
+    host = request.host.split(':')[0]  # Ignoramos el puerto si existe
+    parts = host.split('.')
+    # Si es algo.sistemaspro.online o algo.localhost
+    if len(parts) >= 2:
+        # En producción: dev.sistemaspro.online -> parts = ['dev', 'sistemaspro', 'online']
+        if parts[0] != 'www' and len(parts) > 2:
+            return parts[0].lower()
+    return None
+
 @app.route('/')
 def landing():
+    subdomain = get_subdomain()
+    if subdomain == 'dev':
+        return render_template('software/landing.html')
     return render_template('landing.html')
 
 @app.route('/admin-panel-privado')

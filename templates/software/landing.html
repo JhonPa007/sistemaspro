@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SistemasPro Dev - Agencia de Desarrollo de Software de Alto Rendimiento</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='software.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="software-agency">
+    <div class="mesh-gradient"></div>
+
+    <header class="header">
+        <div class="container navbar">
+            <div class="logo">SistemasPro <span class="text-blue">Dev</span></div>
+            <nav class="nav-links">
+                <a href="#proceso">Proceso</a>
+                <a href="#tecnologias">Stack</a>
+                <a href="#proyectos">Proyectos</a>
+            </nav>
+            <a href="#contacto" class="btn-glow">Iniciar Proyecto</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <span class="label">Ingeniería Web de Clase Mundial</span>
+                    <h1>Transformamos <span class="text-gradient">Ideas Complejas</span> en Productos Digitales
+                        Escalables</h1>
+                    <p>No solo escribimos código, construimos la infraestructura que sostiene el futuro de tu empresa.
+                        Especialistas en desarrollo web, móvil y sistemas críticos.</p>
+                    <div class="hero-btns">
+                        <a href="#contacto" class="btn-primary">Ver Portafolio</a>
+                        <a href="#proceso" class="btn-secondary">Nuestra Metodología</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="image-wrapper">
+                        <img src="{{ url_for('static', filename='img/software-hero.png') }}"
+                            alt="SistemasPro Software Engineering">
+                        <div class="glow-orb"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologias" class="tech-bar">
+            <div class="container flex-row">
+                <span class="tech-item">Python / Django</span>
+                <span class="tech-item">React / Next.js</span>
+                <span class="tech-item">PostgreSQL</span>
+                <span class="tech-item">AWS / Docker</span>
+                <span class="tech-item">Flutter</span>
+            </div>
+        </section>
+
+        <section id="proceso" class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Especialidades del Lab</h2>
+                    <p>Soluciones diseñadas para durar y escalar.</p>
+                </div>
+                <div class="grid-3">
+                    <div class="glass-card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Desarrollo Full-Stack</h3>
+                        <p>Arquitecturas modernas con el enfoque en seguridad y velocidad de carga.</p>
+                    </div>
+                    <div class="glass-card">
+                        <div class="card-icon">📱</div>
+                        <h3>Apps Móviles Nativa</h3>
+                        <p>Experiencias fluidas para iOS y Android con un solo código base de alto rendimiento.</p>
+                    </div>
+                    <div class="glass-card">
+                        <div class="card-icon">🔒</div>
+                        <h3>Sistemas Críticos</h3>
+                        <p>Desarrollo de ERPs y herramientas internas blindadas para grandes volúmenes de datos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container flex-sb">
+            <div class="footer-brand">SistemasPro Dev</div>
+            <div class="copy">&copy; 2026. Todos los derechos reservados.</div>
+        </div>
+    </footer>
+</body>
+
+</html>
