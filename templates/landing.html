@@ -1,435 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial_scale=1.0">
-    <title>SistemasPro AI - Consultoría Tecnológica</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='landing.css') }}?v=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SistemasPro - Ecosistema Tecnológico de Nueva Generación</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='portal.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+<body>
+    <div class="hub-glow"></div>
 
-<body class="landing-page">
-    <div class="background-glow"></div>
+    <main class="portal-container">
+        <section class="hero-portal">
+            <h1 class="text-gradient-hub">SistemasPro</h1>
+            <p>Arquitectura, Inteligencia y Estrategia para la Era Digital. Explora nuestras unidades de negocio especializadas.</p>
+        </section>
 
-    <header class="landing-header">
-        <div class="container navbar">
-            <div class="logo">SistemasPro <span class="text-accent">AI</span></div>
-            <nav class="nav-links">
-                <a href="#servicios">Servicios</a>
-                <a href="#partners">Partners</a>
-                <a href="/blog">Blog</a>
-            </nav>
-            <a href="#contacto" class="cta-button">Agendar Consulta</a>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="badge">Agencia de Automatización B2B</span>
-                <h1>Optimizando el Crecimiento <span class="text-gradient">Empresarial</span> con Inteligencia
-                    Artificial</h1>
-                <p>Ayudamos a PYMES a escalar mediante la implementación estratégica de soluciones SaaS y agentes
-                    autónomos.</p>
-                <div class="hero-actions">
-                    <a href="#contacto" class="primary-btn glow-effect">Empezar Transformación</a>
+        <section class="business-grid">
+            <!-- Agencia de Desarrollo -->
+            <div class="business-card card-dev">
+                <div class="card-content-hub">
+                    <div class="card-icon-hub">💻</div>
+                    <h2>Software Agency</h2>
+                    <p>Desarrollo de ecosistemas digitales escalables, apps móviles y sistemas críticos de alto rendimiento.</p>
                 </div>
+                <a href="https://dev.sistemaspro.online" class="btn-visit">Visitar Agencia Dev</a>
             </div>
-        </div>
-    </section>
 
-    <section id="partners" class="tech-stack">
-        <div class="container">
-            <p class="section-label">POTENCIADO POR LÍDERES DE LA INDUSTRIA</p>
-            <div class="partners-grid">
-                <div class="partner-item">CustomGPT</div>
-                <div class="partner-item">HeyGen</div>
-                <div class="partner-item">GoHighLevel</div>
-                <div class="partner-item">OpenAI</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Free Audit Lead Magnet Section -->
-    <section id="auditoria-gratuita" class="audit-section">
-        <div class="container">
-            <div class="audit-container">
-                <div class="audit-content">
-                    <span class="badge-glow">Oferta Limitada</span>
-                    <h2>Auditoría Gratuita de IA para tu Web</h2>
-                    <p>Descubre oportunidades ocultas de automatización. Analizamos tu sitio y te enviamos una propuesta
-                        de implementación de agentes IA personalizada.</p>
+            <!-- Agencia de IA -->
+            <div class="business-card card-ai">
+                <div class="card-content-hub">
+                    <div class="card-icon-hub">🤖</div>
+                    <h2>AI Agents</h2>
+                    <p>Implementación de agentes autónomos, RAG corporativo y automatización de procesos con IA agéntica.</p>
                 </div>
-                <div class="audit-form-wrapper">
-                    <form id="auditForm" class="audit-form">
-                        <div class="form-group-row">
-                            <input type="text" id="audit_nombre" placeholder="Tu Nombre" required>
-                            <input type="text" id="audit_empresa" placeholder="Empresa" required>
-                        </div>
-                        <input type="email" id="audit_email" placeholder="Email Corporativo" required>
-                        <input type="url" id="audit_url" placeholder="URL de tu sitio web (https://...)" required>
+                <a href="https://agents.sistemaspro.online" class="btn-visit">Explorar Soluciones IA</a>
+            </div>
 
-                        <button type="submit" id="auditSubmitBtn" class="audit-btn">Solicitar Auditoría Gratis</button>
-                        <div id="auditMessage" class="audit-message"></div>
-                    </form>
+            <!-- Marketing de Afiliados -->
+            <div class="business-card card-mkt">
+                <div class="card-content-hub">
+                    <div class="card-icon-hub">📈</div>
+                    <h2>Affiliate Lab</h2>
+                    <p>Estrategias de crecimiento basadas en resultados y recomendación experta de herramientas SaaS líderes.</p>
                 </div>
+                <a href="https://partners.sistemaspro.online" class="btn-visit">Ver Oportunidades</a>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section id="servicios" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nuestras Soluciones</h2>
-                <p>Tecnología de vanguardia para resultados tangibles.</p>
-            </div>
-            <div class="services-grid">
-                <!-- CustomGPT Card -->
-                <div class="service-card featured-card">
-                    <div class="card-header">
-                        <div class="icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 10 10 0 0 0-4 4 4 4 0 0 1-5-5">
-                                </path>
-                                <path d="M8.5 8.5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5Z"></path>
-                            </svg>
-                        </div>
-                        <h3>CustomGPT.ai</h3>
-                    </div>
-                    <p>La plataforma líder para construir agentes IA con tus propios datos empresariales.</p>
-
-                    <ul class="feature-list">
-                        <li>
-                            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Cero Alucinaciones con Citas de Fuentes
-                        </li>
-                        <li>
-                            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Seguridad SOC-2 Type 2 y Privacidad GDPR
-                        </li>
-                        <li>
-                            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Despliegue Multi-fuente (Google Drive, Slack, API)
-                        </li>
-                    </ul>
-
-                    <div class="trust-badges">
-                        <span class="trust-badge">SOC-2 Type 2</span>
-                        <span class="trust-badge">GDPR Compliant</span>
-                    </div>
-
-                    <a href="https://customgpt.ai/?fpr=jhon-paolo32" target="_blank" class="card-action-btn">Implementar
-                        CustomGPT</a>
-                </div>
-
-                <!-- HeyGen Card -->
-                <div class="service-card">
-                    <div class="card-header">
-                        <div class="icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M15.6 11.6L22 7v10l-6.4-4.5v-1zM4 5h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7c0-1.1.9-2 2-2z" />
-                            </svg>
-                        </div>
-                        <h3>HeyGen</h3>
-                    </div>
-                    <p>Generación de video con IA para escalar tu comunicación corporativa.</p>
-
-                    <ul class="feature-list">
-                        <li>
-                            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Avatares de IA Multilingües
-                        </li>
-                        <li>
-                            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Personalización de Video a Escala
-                        </li>
-                    </ul>
-
-                    <a href="#" class="card-action-btn secondary">Ver Demo HeyGen</a>
-                </div>
-
-                <!-- GoHighLevel Card -->
-                <div class="service-card">
-                    <div class="card-header">
-                        <div class="icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                            </svg>
-                        </div>
-                        <h3>GoHighLevel</h3>
-                    </div>
-                    <p>La plataforma definitiva de ventas y marketing todo en uno.</p>
-
-                    <ul class="feature-list">
-                        <li>
-                            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            CRM Todo-en-uno
-                        </li>
-                        <li>
-                            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Automatización de Ventas B2B
-                        </li>
-                    </ul>
-
-                    <a href="#" class="card-action-btn secondary">Explorar CRM</a>
-                </div>
-            </div>
-
-            <!-- Resources Section -->
-            <div class="resources-section">
-                <a href="https://docs.customgpt.ai/" target="_blank" class="text-link">Ver Guía de Implementación
-                    No-Code <span class="arrow">→</span></a>
-            </div>
-        </div>
-    </section>
-
-    <section id="casos-uso" class="use-cases-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Impacto Real en tu Industria</h2>
-                <p>Soluciones específicas para problemas complejos.</p>
-            </div>
-            <div class="use-cases-grid">
-                <!-- Legal Wrapper -->
-                <div class="use-case-card">
-                    <div class="case-icon">⚖️</div>
-                    <h3>Legal & Compliance</h3>
-                    <p>Búsqueda de precedentes y análisis de contratos en segundos con precisión jurídica.</p>
-                </div>
-                <!-- Tech Support Wrapper -->
-                <div class="use-case-card">
-                    <div class="case-icon">🛠️</div>
-                    <h3>Soporte Técnico</h3>
-                    <p>Resolución automática de tickets L1 reduciendo la carga del equipo humano en un 70%.</p>
-                </div>
-                <!-- Real Estate Wrapper -->
-                <div class="use-case-card">
-                    <div class="case-icon">🏘️</div>
-                    <h3>Real Estate</h3>
-                    <p>Asistente 24/7 para calificación de leads y agendamiento de visitas sin intervención manual.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="contact-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Agenda tu Consulta</h2>
-                <p>Descubre cómo la IA puede transformar tu negocio hoy mismo.</p>
-            </div>
-
-            <div class="contact-form-container">
-                <form id="contactForm" class="contact-form">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="nombre">Nombre Completo</label>
-                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Correo Electrónico</label>
-                            <input type="email" id="email" name="email" required placeholder="nombre@empresa.com">
-                        </div>
-                    </div>
-
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="empresa">Empresa</label>
-                            <input type="text" id="empresa" name="empresa" required placeholder="Nombre de tu empresa">
-                        </div>
-                        <div class="form-group">
-                            <label for="url_sitio">Sitio Web</label>
-                            <input type="url" id="url_sitio" name="url_sitio" placeholder="https://tuempresa.com">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="solucion">Solución de Interés</label>
-                        <select id="solucion" name="solucion" required>
-                            <option value="" disabled selected>Selecciona una opción</option>
-                            <option value="CustomGPT">CustomGPT (Agente IA)</option>
-                            <option value="HeyGen">HeyGen (Video IA)</option>
-                            <option value="GoHighLevel">GoHighLevel (CRM & Ventas)</option>
-                            <option value="Consultoría General">Consultoría General</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="4"
-                            placeholder="Cuéntanos brevemente sobre tu proyecto..."></textarea>
-                    </div>
-
-                    <div class="privacy-note">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        Sus datos están protegidos y tratados bajo estándares de privacidad corporativa.
-                    </div>
-
-                    <button type="submit" id="submitBtn" class="primary-btn glow-effect full-width">Enviar
-                        Consulta</button>
-
-                    <div id="formMessage" class="form-message"></div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('submitBtn');
-            const messageDiv = document.getElementById('formMessage');
-            const originalBtnText = submitBtn.innerText;
-
-            // Disable button and show loading state
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'Enviando...';
-            messageDiv.style.display = 'none';
-            messageDiv.className = 'form-message';
-
-            const formData = {
-                nombre: document.getElementById('nombre').value,
-                email: document.getElementById('email').value,
-                empresa: document.getElementById('empresa').value,
-                url_sitio: document.getElementById('url_sitio').value,
-                solucion: document.getElementById('solucion').value,
-                mensaje: document.getElementById('mensaje').value
-            };
-
-            try {
-                const response = await fetch('/enviar-consulta', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    messageDiv.innerText = '✅ ¡Consulta enviada con éxito! Revisa tu correo, te hemos enviado una confirmación.';
-                    messageDiv.classList.add('success');
-                    messageDiv.style.display = 'block';
-                    document.getElementById('contactForm').reset();
-                } else {
-                    throw new Error(data.error || 'Error al enviar');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                messageDiv.innerText = '❌ Hubo un error al enviar tu consulta. Por favor, intenta de nuevo.';
-                messageDiv.classList.add('error');
-                messageDiv.style.display = 'block';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerText = originalBtnText;
-            }
-        });
-
-        // Audit Form Script
-        document.getElementById('auditForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('auditSubmitBtn');
-            const messageDiv = document.getElementById('auditMessage');
-            const originalBtnText = submitBtn.innerText;
-
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'Analizando...';
-            messageDiv.style.display = 'none';
-
-            const formData = {
-                nombre: document.getElementById('audit_nombre').value,
-                email: document.getElementById('audit_email').value,
-                empresa: document.getElementById('audit_empresa').value,
-                url_web: document.getElementById('audit_url').value
-            };
-
-            try {
-                const response = await fetch('/solicitar-auditoria', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    messageDiv.innerText = '✅ ' + data.message;
-                    messageDiv.className = 'audit-message success';
-                    messageDiv.style.display = 'block';
-                    document.getElementById('auditForm').reset();
-                } else {
-                    throw new Error(data.error || 'Error al solicitar auditoría');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                messageDiv.innerText = '❌ Error de conexión. Inténtalo de nuevo.';
-                messageDiv.className = 'audit-message error';
-                messageDiv.style.display = 'block';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerText = originalBtnText;
-            }
-        });
-    </script>
-
-    <footer class="landing-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">SistemasPro AI</div>
-                <p>&copy; 2026. Construyendo el futuro de la automatización.</p>
-            </div>
+    <footer style="text-align: center; padding: 4rem 0; color: var(--text-s); font-size: 0.9rem;">
+        <div class="portal-container">
+            <p>&copy; 2026 SistemasPro Group. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <!-- Chatbot Widget Placeholder -->
-    <div class="chatbot-widget">
-        <!-- INSERT CUSTOMGPT SCRIPT HERE -->
-        <div class="chatbot-placeholder-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-        </div>
-    </div>
 </body>
-
 </html>
