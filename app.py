@@ -64,6 +64,8 @@ def landing():
     subdomain = get_subdomain()
     if subdomain == 'dev':
         return render_template('software/landing.html')
+    elif subdomain == 'agents':
+        return render_template('ia/landing.html')
     return render_template('landing.html')
 
 @app.route('/admin-panel-privado')

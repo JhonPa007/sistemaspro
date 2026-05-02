@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SistemasPro Agents - La Inteligencia que Ejecuta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='ia.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="ia-agency">
+    <header class="header">
+        <div class="container navbar">
+            <div class="logo">SistemasPro <span class="text-gradient-ai">Agents</span></div>
+            <nav class="nav-links">
+                <a href="#soluciones">Soluciones</a>
+                <a href="#agentes">Agentes</a>
+                <a href="#seguridad">Seguridad</a>
+            </nav>
+            <a href="https://wa.me/tu-numero" class="btn-ai-glow">Desplegar Agente</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="hero-badge">Next-Gen AI Agency</span>
+                    <h1>De la IA que Responde a la <span class="text-gradient-ai">IA que Ejecuta</span></h1>
+                    <p>Implementamos ecosistemas de Agentes Autónomos que no solo conversan, sino que operan tu negocio 24/7 con precisión quirúrgica y cero alucinaciones.</p>
+                    <div class="hero-actions">
+                        <a href="#agentes" class="btn-ai-glow">Ver Modelos de Agentes</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="{{ url_for('static', filename='img/ai-hero.png') }}" alt="AI Neural Command Center">
+                    <div class="glow-overlay"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="soluciones" class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Ecosistemas Agénticos</h2>
+                    <p>Arquitectura de inteligencia diseñada para el ROI inmediato.</p>
+                </div>
+                <div class="cards-grid">
+                    <div class="ai-card">
+                        <div class="card-icon">🧠</div>
+                        <h3>RAG Corporativo</h3>
+                        <p>Inyectamos el conocimiento de tu empresa en modelos de lenguaje con citación de fuentes en tiempo real.</p>
+                    </div>
+                    <div class="ai-card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Agentes de Venta</h3>
+                        <p>Autónomos en prospección, calificación y cierre de leads directamente en tu CRM.</p>
+                    </div>
+                    <div class="ai-card">
+                        <div class="card-icon">🛡️</div>
+                        <h3>IA de Privacidad</h3>
+                        <p>Entornos aislados y seguros donde tus datos empresariales nunca se filtran a modelos públicos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container" style="padding: 4rem 0; border-top: 1px solid var(--border-color); text-align: center;">
+            <p>&copy; 2026 SistemasPro Agents. Una división de SistemasPro.online</p>
+        </div>
+    </footer>
+</body>
+</html>
