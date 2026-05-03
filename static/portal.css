@@ -90,6 +90,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .business-card::before {
