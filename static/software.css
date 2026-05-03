@@ -331,6 +331,11 @@ body {
     width: 100%;
 }
 
+.dev-form select option {
+    background-color: #030712; /* Fondo oscuro coincidente con la web */
+    color: white;
+}
+
 .dev-form input:focus, 
 .dev-form select:focus, 
 .dev-form textarea:focus {
